@@ -36,9 +36,9 @@ function showOutput(message) {
 //checks valid 
 function clickHandler() {
 
-    var initialValue = initialPirce.value;
-    var quantityStock = stockQuantity.value;
-    var currentValue = currentPrice.value;
+    var initialValue = Number(initialPirce.value);
+    var quantityStock = Number(stockQuantity.value);
+    var currentValue = Number(currentPrice.value);
 
     if(initialValue === "" || quantityStock === "" || currentValue ===""){
         outputBox.innerText = "please fill all the field"
