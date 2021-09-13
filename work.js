@@ -40,13 +40,16 @@ function clickHandler() {
     var quantityStock = Number(stockQuantity.value);
     var currentValue = Number(currentPrice.value);
 
-    if(initialValue != "" && quantityStock != "" && currentValue != ""){
+    if(initialValue == "" || quantityStock == "" || currentValue == "" || initialValue <= 0 || quantityStock <= 0 || currentValue <= 0){
        
-        calculateProfitAndLoss(initialValue , quantityStock, currentValue) 
+       
+            outputBox.innerText = "please fill all the field"
+        
+        
     }
     else{
         
-         outputBox.innerText = "please fill all the field"
+         calculateProfitAndLoss(initialValue , quantityStock, currentValue) 
     }
     
 }
