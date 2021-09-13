@@ -43,7 +43,7 @@ function clickHandler() {
     if(initialValue == "" || quantityStock == "" || currentValue == "" || initialValue <= 0 || quantityStock <= 0 || currentValue <= 0){
        
        
-            outputBox.innerText = "please fill all the field"
+            outputBox.innerText = "please check the fields again"
         
         
     }
