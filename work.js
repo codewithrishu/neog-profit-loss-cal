@@ -3,7 +3,7 @@ var stockQuantity = document.querySelector('#quantity')
 var currentPrice = document.querySelector('#current-price')
 var checkBtn = document.querySelector('#check-btn')
 var outputBox = document.querySelector('#output-box')
-
+var inputBoxes = document.querySelectorAll('.inputs')
 
 
 //calculate profit and loss
@@ -38,19 +38,35 @@ function clickHandler() {
 
     var initialValue = Number(initialPirce.value);
     var quantityStock = Number(stockQuantity.value);
-    var currentValue = Number(currentPrice.value);
-
-    if(initialValue == "" || quantityStock == "" || currentValue == "" || initialValue <= 0 || quantityStock <= 0 || currentValue <= 0){
-       
-       
+    var currentValue = Number(currentPrice.value); 
+    
+        var flag = true
+    for(var i = 0;i<inputBoxes.length; i++){
+            if(inputBoxes[i].value == ""  ){
+                outputBox.innerText = "please fill all the input fields"
+                flag = false;
+                break;
+            
+            }
+            else if(inputBoxes[i].value <= 0 ){
+                        outputBox.innerText = "field cannot be negative"
+                        flag = false;
+                break;
+            }
+    }
+         if(flag == true){
+            calculateProfitAndLoss(initialValue , quantityStock, currentValue) 
+        }
+        
+        
+        //OLD APPROACH
+    /*if(initialValue == "" || quantityStock == "" || currentValue == "" || initialValue <= 0 || quantityStock <= 0 || currentValue <= 0){
             outputBox.innerText = "please check the fields again"
-        
-        
     }
     else{
         
          calculateProfitAndLoss(initialValue , quantityStock, currentValue) 
-    }
+    } */
     
 }
 checkBtn.addEventListener('click',clickHandler)
